@@ -1,2 +1,8 @@
-p 123
-= link_to "Home", root_path, class: "btn btn-primary"
+.text-center.mt-5
+  H1 Welcome to news app
+
+.col-12.col-md-4.offset-md-4
+  .list-group
+    = link_to "Says", posts_path(kind: "says"), class: "list-group-item list-group-item-action"
+    = link_to "Free Malaysia Today", posts_path(kind: "says"), class: "list-group-item list-group-item-action"
+    = link_to "The Rakyat Post", posts_path(kind: "says"), class: "list-group-item list-group-item-action"
