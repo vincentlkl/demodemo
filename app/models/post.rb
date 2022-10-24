@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :category
 
-  enum provider: { says: 0, free_malaysia: 1, rakyat_post: 2 }
+  enum provider: { says: 0, free_malaysia: 1, the_rakyat: 2 }
   scope :ordered, -> { order(:published_at) }
   validates :url, uniqueness: true
 
