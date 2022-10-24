@@ -1,0 +1,25 @@
+.row.mt-5
+  .col-12.col-md-3.mb-3
+    .list-group
+      = link_to "All", posts_path(provider: params[:provider]), class: "list-group-item list-group-item-action #{'active' if params[:category].blank? }"
+      - @categories.each do |category|
+        = link_to category.name, posts_path(provider: params[:provider], category: category.id), class: "list-group-item list-group-item-action #{'active' if params[:category] == category.id.to_s }"
+  .col-12.col-md-9
+    h1 Says
+
+    .row
+      - @posts.each do |post|
+        .col-4
+          .card
+            = image_tag post.cover_image_url, class: "card-img-top", data: { load: "lazy" }
+          .card-body.mb-5
+            h6
+              span.badge.bg-secondary #{post.category.name}
+            p.card-text = post.title
+            .row.mb-3
+              .col-12
+                .float-start
+                  small.text-muted By #{post.author}
+                .float-end
+                  small.text-muted #{post.published_at&.strftime("%Y-%m-%d %H:%M")}
+            = link_to "Read more", post_path(post), class: "btn btn-primary btn-sm"

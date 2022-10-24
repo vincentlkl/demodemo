@@ -1,0 +1,17 @@
+.row.mt-5
+  .col-12
+    .float-start
+      = "By #{@post.author}"
+    .float-end
+      = "published at #{@post.published_at}"
+.row
+  h2 = @post.title
+.row
+  = image_tag @post.cover_image_url, class: "img"
+.row
+  .col-12.post-body
+    = @post.content.html_safe
+
+
+style
+  |  img { width: 60%; }
