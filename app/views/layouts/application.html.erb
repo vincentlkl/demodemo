@@ -26,6 +26,10 @@
             <li class="nav-item">
               <%= link_to "Free Malaysia Today", posts_path(provider: "free_malaysia"), class: "nav-link #{'active' if @provider == 'free_malaysia' }" %>
             </li>
+
+            <li class="nav-item">
+              <%= link_to "The Rakyat Post", posts_path(provider: "the_rakyat"), class: "nav-link #{'active' if @provider == 'the_rakyat' }" %>
+            </li>
           </ul>
         </div>
       </div>
