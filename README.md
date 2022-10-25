@@ -1,25 +1,7 @@
+## To generate says posts
 
-# README
+bundle exec rake generate_says_posts:generate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## To generate Free Malaysia posts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bundle exec rake generate_free_malaysia_posts:generate
