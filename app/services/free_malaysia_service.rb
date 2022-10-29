@@ -3,6 +3,8 @@ class FreeMalaysiaService
 
   def initialize()
     @mechanize = Mechanize.new
+    @mechanize.user_agent = 'Mac Safari'
+    @mechanize.agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
     @mechanize.keep_alive   = true
     @base_url = "https://www.freemalaysiatoday.com"
   end
