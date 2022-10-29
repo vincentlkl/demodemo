@@ -10,6 +10,7 @@ namespace :generate_says_posts do
       category_post_urls = SaysService.new.get_category_posts(category: category, url: url)
 
       category_post_urls&.each do |post_url|
+        break if index > 8
         content = SaysService.new.get_page_content(url: post_url[:url], published_at: post_url[:published_at])
 
         post = Post.where(url: post_url[:url], provider: :says).first_or_initialize

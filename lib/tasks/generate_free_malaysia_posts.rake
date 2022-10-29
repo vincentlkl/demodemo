@@ -10,6 +10,7 @@ namespace :generate_free_malaysia_posts do
       category_post_urls = FreeMalaysiaService.new.get_category_posts(category: category, url: url)
 
       category_post_urls&.each do |post_url|
+        break if index > 8
         content = FreeMalaysiaService.new.get_page_content(url: post_url[:url])
         post = Post.where(url: post_url[:url], provider: :free_malaysia).first_or_initialize
         post.category_id = category.id

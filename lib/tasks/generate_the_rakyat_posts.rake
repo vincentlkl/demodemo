@@ -9,7 +9,8 @@ namespace :generate_the_rakyat_posts do
       category = Category.where(name: category_name).first_or_create
       category_post_urls = TheRakyatService.new.get_category_posts(category: category, url: url)
 
-      category_post_urls&.each do |post_url|
+      category_post_urls&.each_with_index do |post_url, index|
+        break if index > 8
         content = TheRakyatService.new.get_page_content(url: post_url[:url])
         post = Post.where(url: post_url[:url], provider: :the_rakyat).first_or_initialize
         post.category_id = category.id
