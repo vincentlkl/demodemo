@@ -2,10 +2,6 @@ class TheRakyatService
   require 'mechanize'
 
   def initialize()
-    cert_store = OpenSSL::X509::Store.new
-    cert_store.set_default_paths
-    cert_store.add_file File.expand_path(Rails.root.join('pem','therakyatpost.pem'))
-
     @mechanize = Mechanize.new
     @mechanize.user_agent = 'Mac Safari'
     @mechanize.agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
